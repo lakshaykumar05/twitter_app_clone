@@ -68,7 +68,7 @@ class _BookmarksState extends State<Bookmarks> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(left:43.0,),
-                    child: Text("When you do, they'll show up here.",style:
+                    child: Text("When you do, they'll show up here. ",style:
                     TextStyle(
                       color: Colors.grey,
                  //     fontWeight: FontWeight.bold,
@@ -79,62 +79,6 @@ class _BookmarksState extends State<Bookmarks> {
                   ),
                 ],
               ),
-              //      Row(
-              // //       crossAxisAlignment: CrossAxisAlignment.center,
-              //        mainAxisAlignment: MainAxisAlignment.center,
-              //        children: [
-              //          Padding(
-              //            padding: const EdgeInsets.only(left:28.0,right: 28.0,top: 0.0),
-              //            child: Text('Moments',style:
-              //            TextStyle(
-              //              color: Colors.white,
-              //              fontWeight: FontWeight.bold,
-              //              fontSize: 23.0,
-              //            ),) ,
-              //          ),
-              //        ],
-              //      ),
-              // Row(
-              //   crossAxisAlignment: CrossAxisAlignment.center,
-              //   mainAxisAlignment: MainAxisAlignment.center,
-              //   children: [
-              //     Padding(
-              //       padding: const EdgeInsets.only(left:65.0,right: 58.0),
-              //       child: Text("You haven't create or edit a Moment, please use",style:
-              //       TextStyle(
-              //         color: Colors.grey,
-              //         //        fontWeight: FontWeight.bold,
-              //         fontSize: 13.0,
-              //       ),
-              //         //       maxLines: 2,
-              //       ),
-              //     ),
-              //   ],
-              // ),
-              // SizedBox(
-              //   height: 5.0,
-              // ),
-              // Row(
-              //   crossAxisAlignment: CrossAxisAlignment.center,
-              //   mainAxisAlignment: MainAxisAlignment.center,
-              //   children: [
-              //     Padding(
-              //       padding: const EdgeInsets.only(left:23.0),
-              //       child: Text("twitter.com.",style:
-              //       TextStyle(
-              //         color: Colors.grey,
-              //         //        fontWeight: FontWeight.bold,
-              //         fontSize: 13.0,
-              //       ),
-              //         //       maxLines: 2,
-              //       ),
-              //     ),
-              //     Text('Learn more',style:
-              //     TextStyle(
-              //       color: Colors.blue,
-              //     ),),
-              //   ],
-              // ),
             ],
           ),
         ),
