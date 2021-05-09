@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:twitter_ui/storydata.dart';
 import 'constants.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'user_moments.dart';
@@ -8,6 +9,8 @@ import 'user_profile.dart';
 import 'user_topics.dart';
 import 'search_screen.dart';
 import 'notification_screen.dart';
+import 'storybtn.dart';
+import 'storydata.dart';
 
 class App extends StatefulWidget {
   @override
@@ -17,9 +20,17 @@ class App extends StatefulWidget {
 class _AppState extends State<App> {
   int _currentindex=0;
 
+    List<StoryData> stories = [
+       StoryData(userName: 'Lakshay Kumar' , avatarUrl: 'images/5.jpg'),
+       StoryData(userName: 'Angela Yu' , avatarUrl: 'images/1.jpg'),
+       StoryData(userName: 'Mam' , avatarUrl: 'images/2.jpg'),
+       StoryData(userName: 'Joseph' , avatarUrl: 'images/3.jpg'),
+       StoryData(userName: 'Sam' , avatarUrl: 'images/4.jpg'),
+       StoryData(userName: 'Buttler' , avatarUrl: 'images/6.jpg'),
+       StoryData(userName: 'Maam' , avatarUrl: 'images/7.jpg'),
+    ];
   @override
   Widget build(BuildContext context) {
-
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.black,
@@ -264,20 +275,39 @@ class _AppState extends State<App> {
         ),
         body: Column(
           children: [
-            Row(
-              children: [
-                IconButton(
-                  icon: Icon(Icons.account_circle_rounded,color: Colors.grey,size: 60.0,),
-                ),
-          ],
-        ),
-            SizedBox(
-              height: 40.0,
-              child: Divider(
-                color: Colors.grey,
+            // Row(
+            //   children: [
+            //     IconButton(
+            //       icon: Icon(Icons.account_circle_rounded,color: Colors.grey,size: 60.0,),
+            //     ),
+            //   ],
+            // ),
+            Container(
+              width: double.infinity,
+              height:150.0,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: [
+                  storyButton(stories[0],context),
+                  storyButton(stories[1],context),
+                  storyButton(stories[2],context),
+                  storyButton(stories[3],context),
+                  storyButton(stories[4],context),
+                  storyButton(stories[5],context),
+                  storyButton(stories[6],context),
+                ],
               ),
             ),
-        ],
+          ],
+        //   children: [
+        //
+        //     SizedBox(
+        //       height: 40.0,
+        //       child: Divider(
+        //         color: Colors.grey,
+        //       ),
+        //     ),
+        // ],
       ),
         bottomNavigationBar: BottomNavigationBar(
            currentIndex: _currentindex,

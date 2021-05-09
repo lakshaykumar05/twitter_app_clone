@@ -13,3 +13,8 @@ const notboldgreystyling = TextStyle(
 const notboldstyling = TextStyle(
   fontSize: 19,
 );
+
+const notifications_styling = TextStyle(
+  color: Colors.white,
+  fontSize: 13.0,
+);

@@ -16,7 +16,7 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: DefaultTabController(
-        initialIndex: 2,
+        initialIndex: 1,
         length: 6,
         child: Scaffold(
           backgroundColor: Colors.black,
@@ -31,6 +31,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     child: Text('For You',style:
                       TextStyle(
                         color: Colors.grey,
+                        fontSize: 17.0,
                       ),),
                   ),
                 ),
@@ -38,33 +39,37 @@ class _SearchScreenState extends State<SearchScreen> {
                   child: Text('COVID-19',style:
                   TextStyle(
                     color: Colors.grey,
+                    fontSize: 17.0,
                   ),),
                 ),
                 Tab(
                   child: Text('Trending',style:
                   TextStyle(
                     color: Colors.grey,
+                    fontSize: 17.0,
                   ),),
                 ),
                 Tab(
                   child: Text('News',style:
                   TextStyle(
                     color: Colors.grey,
+                    fontSize: 17.0,
                   ),),
                 ),
                 Tab(
                   child: Text('Sports',style:
                   TextStyle(
                     color: Colors.grey,
+                    fontSize: 17.0,
                   ),),
                 ),
                 Tab(
                   child: Text('Entertainment',style:
                   TextStyle(
                     color: Colors.grey,
+                    fontSize: 17.0,
                   ),),
                 ),
-
               ],
             ),
             backgroundColor: Colors.black,
@@ -315,6 +320,338 @@ class _SearchScreenState extends State<SearchScreen> {
                   ],
                 ),
               ),
+            ),
+          ),
+          body:
+          ListView(
+            children: [
+              Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top:13.0,left: 0),
+                    child: Column(
+                      children: [
+                        Container(
+                          alignment: Alignment.topLeft,
+                          child: Padding(
+                            padding: const EdgeInsets.only(left:5.0),
+                            child: Text('COVID-19 - LIVE',style: TextStyle(
+                              color: Colors.grey,
+                            ),),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 8.0,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left:5.0),
+                          child: Text('COVID-19 vaccination for 18-45 age group is now open',style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 17,
+                            fontWeight: FontWeight.w500,
+                          ),),
+                        ),
+                        // Divider(
+                        //   color: Colors.grey,
+                        // ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                      height:5.0
+                  ),
+                  Divider(
+                    color: Colors.grey,
+                    //       thickness: 8,
+                  ),
+                ],
+              ),
+              Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top:13.0,left: 0),
+                    child: Column(
+                      children: [
+                        Container(
+                          alignment: Alignment.topLeft,
+                          child: Padding(
+                            padding: const EdgeInsets.only(left:8.0),
+                            child: Text('Food - Trending',style: TextStyle(
+                              color: Colors.grey,
+                            ),),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 8.0,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left:8.0),
+                          child: Container(
+                            alignment: Alignment.topLeft,
+                            child: Text('Milk',style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 17,
+                              fontWeight: FontWeight.w500,
+                            ),),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 8.0,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left:8.0),
+                          child: Container(
+                            alignment: Alignment.topLeft,
+                            child: Text('129K Tweets',style: TextStyle(
+                              color: Colors.grey,
+                            ),),
+                          ),
+                        ),
+                        // Divider(
+                        //   color: Colors.grey,
+                        // ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                      height:5.0
+                  ),
+                  Divider(
+                    color: Colors.grey,
+                    //       thickness: 8,
+                  ),
+                ],
+              ),
+              Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top:13.0,left: 0),
+                    child: Column(
+                      children: [
+                        Container(
+                          alignment: Alignment.topLeft,
+                          child: Padding(
+                            padding: const EdgeInsets.only(left:8.0),
+                            child: Text('La Liga - Live',style: TextStyle(
+                              color: Colors.grey,
+                            ),),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 8.0,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left:8.0),
+                          child: Container(
+                            alignment: Alignment.topLeft,
+                            child: Text('Real Madrid vs Barcellona',style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 17,
+                              fontWeight: FontWeight.w500,
+                            ),),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 8.0,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left:8.0),
+                          child: Container(
+                            alignment: Alignment.topLeft,
+                            child: Row(
+                              children: [
+                                Text('Tending with',style: TextStyle(
+                                  color: Colors.grey,
+                                ),),
+                                Text(' Messi, Ronaldo',style:TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w500,
+                                ),),
+                              ],
+                            ),
+                          ),
+                        ),
+                        // Divider(
+                        //   color: Colors.grey,
+                        // ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height:5.0
+                  ),
+                  Divider(
+                    color: Colors.grey,
+             //       thickness: 8,
+                  ),
+                ],
+              ),
+              Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top:13.0,left: 0),
+                    child: Column(
+                      children: [
+                        Container(
+                          alignment: Alignment.topLeft,
+                          child: Padding(
+                            padding: const EdgeInsets.only(left:8.0),
+                            child: Text('Politics - Trending',style: TextStyle(
+                              color: Colors.grey,
+                            ),),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 8.0,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left:8.0),
+                          child: Container(
+                            alignment: Alignment.topLeft,
+                            child: Text('#ModiMahal',style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 17,
+                              fontWeight: FontWeight.w500,
+                            ),),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 8.0,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left:8.0),
+                          child: Container(
+                            alignment: Alignment.topLeft,
+                            child: Text('38.1K Tweets',style: TextStyle(
+                              color: Colors.grey,
+                            ),),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                      height:5.0
+                  ),
+                  Divider(
+                    color: Colors.grey,
+                    //       thickness: 8,
+                  ),
+                ],
+              ),
+              Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top:13.0,left: 0),
+                    child: Column(
+                      children: [
+                        Container(
+                          alignment: Alignment.topLeft,
+                          child: Padding(
+                            padding: const EdgeInsets.only(left:8.0),
+                            child: Text('Sports - Trending',style: TextStyle(
+                              color: Colors.grey,
+                            ),),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 8.0,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left:8.0),
+                          child: Container(
+                            alignment: Alignment.topLeft,
+                            child: Text('MS Dhoni',style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 17,
+                              fontWeight: FontWeight.w500,
+                            ),),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 8.0,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left:8.0),
+                          child: Container(
+                            alignment: Alignment.topLeft,
+                            child: Text('35.4K Tweets',style: TextStyle(
+                              color: Colors.grey,
+                            ),),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                      height:5.0
+                  ),
+                  Divider(
+                    color: Colors.grey,
+                    //       thickness: 8,
+                  ),
+                ],
+              ),
+              Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top:13.0,left: 0),
+                    child: Column(
+                      children: [
+                        Container(
+                          alignment: Alignment.topLeft,
+                          child: Padding(
+                            padding: const EdgeInsets.only(left:8.0),
+                            child: Text('Entertainment - Trending',style: TextStyle(
+                              color: Colors.grey,
+                            ),),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 8.0,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left:8.0),
+                          child: Container(
+                            alignment: Alignment.topLeft,
+                            child: Text('Disha Patani',style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 17,
+                              fontWeight: FontWeight.w500,
+                            ),),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 8.0,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left:8.0),
+                          child: Container(
+                            alignment: Alignment.topLeft,
+                            child: Text('85K Tweets',style: TextStyle(
+                              color: Colors.grey,
+                            ),),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                      height:5.0
+                  ),
+                  Divider(
+                    color: Colors.grey,
+                    //       thickness: 8,
+                  ),
+                ],
+              ),
+            ],
+          ),
+          floatingActionButton: FloatingActionButton(
+            backgroundColor: Colors.blue,
+            child: IconButton(
+              icon: FaIcon(FontAwesomeIcons.plus,color: Colors.white,),
+              onPressed: (){},
             ),
           ),
         ),

@@ -6,6 +6,7 @@ import 'user_bookmarks.dart';
 import 'message_screen.dart';
 import 'user_moments.dart';
 import 'Notifications.dart';
+import 'Mentions.dart';
 
 
 class NotificationScreen extends StatefulWidget {
@@ -61,14 +62,23 @@ class _NotificationScreenState extends State<NotificationScreen> {
                     child: Text('All',style:
                     TextStyle(
                       color: Colors.grey,
-                    ),),
+                    ),
+                    ),
+                   //  onPressed: () {
+                   // //   Navigator.of();
+                   //    var result =  Navigator.push(context, MaterialPageRoute(builder:
+                   //    (context) => Notificatons();
+                   //    ));
+                   //  },
                   ),
                 ),
                 Tab(
-                  child: Text('Mentions',style:
-                  TextStyle(
-                    color: Colors.grey,
-                  ),),
+                  child: TextButton(
+                    child: Text('Mentions',style:
+                    TextStyle(
+                      color: Colors.grey,
+                    ),),
+                  ),
                 ),
               ],
             ),
@@ -310,13 +320,19 @@ class _NotificationScreenState extends State<NotificationScreen> {
               ),
             ),
           ),
-         body:
-            Container(
-
+         body: TabBarView(
+           children: [
+             Notifications(),
+             Mentions(),
+           ],
+         ),
+          floatingActionButton: FloatingActionButton(
+            backgroundColor: Colors.blue,
+            child: IconButton(
+              icon: FaIcon(FontAwesomeIcons.plus,color: Colors.white,),
+              onPressed: (){},
             ),
-          // TabBarView(
-        //   children: containers,
-        // ),
+          ),
         ),
       ),
     );
