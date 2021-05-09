@@ -64,7 +64,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   ),),
                 ),
                 Tab(
-                  child: Text('Entertainment',style:
+                  child: Text('Entertainment ',style:
                   TextStyle(
                     color: Colors.grey,
                     fontSize: 17.0,
