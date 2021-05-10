@@ -46,21 +46,6 @@ class _MomentsState extends State<Moments> {
                 ),
         ],
       ),
-         //      Row(
-         // //       crossAxisAlignment: CrossAxisAlignment.center,
-         //        mainAxisAlignment: MainAxisAlignment.center,
-         //        children: [
-         //          Padding(
-         //            padding: const EdgeInsets.only(left:28.0,right: 28.0,top: 0.0),
-         //            child: Text('Moments',style:
-         //            TextStyle(
-         //              color: Colors.white,
-         //              fontWeight: FontWeight.bold,
-         //              fontSize: 23.0,
-         //            ),) ,
-         //          ),
-         //        ],
-         //      ),
               SizedBox(
                 height: 5.0,
               ),

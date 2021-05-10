@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:twitter_ui/storydata.dart';
 import 'constants.dart';
@@ -11,14 +12,26 @@ import 'search_screen.dart';
 import 'notification_screen.dart';
 import 'storybtn.dart';
 import 'storydata.dart';
+import 'fbutton.dart';
+import 'message_screen.dart';
 
 class App extends StatefulWidget {
   @override
   _AppState createState() => _AppState();
 }
 
-class _AppState extends State<App> {
+class _AppState extends State<App> with SingleTickerProviderStateMixin {
   int _currentindex=0;
+
+  bool isOpened=false;
+  AnimationController _animationcontroller;
+  Animation<Color> _buttoncolor;
+  Animation<double> _animationIcon;
+  Animation<double> _translateButton;
+  Curve _curve = Curves.easeOut;
+  double _fabHeight = 56.0;
+
+
 
     List<StoryData> stories = [
        StoryData(userName: 'Lakshay Kumar' , avatarUrl: 'images/5.jpg'),
@@ -29,7 +42,92 @@ class _AppState extends State<App> {
        StoryData(userName: 'Buttler' , avatarUrl: 'images/6.jpg'),
        StoryData(userName: 'Maam' , avatarUrl: 'images/7.jpg'),
     ];
+
+
+    @override
+  void dispose(){
+    _animationcontroller.dispose();
+}
+
   @override
+  void initState()
+  {
+    _animationcontroller=AnimationController(vsync: this, duration: Duration(milliseconds: 500))
+        ..addListener(() {setState(() {
+        });
+        });
+    _animationIcon = Tween <double> (begin: 0.0,end: 1.0).animate(_animationcontroller);
+    _buttoncolor = ColorTween(begin: Colors.blue,end: Colors.blue).animate(CurvedAnimation(
+        parent: _animationcontroller,
+      curve: Interval(0.0,1.0,curve: Curves.linear)));
+    _translateButton =Tween <double> (begin: _fabHeight,end: -5).animate(CurvedAnimation(
+        parent: _animationcontroller,
+        curve: Interval(0.0,0.75,curve: _curve)));
+
+    super.initState();
+  }
+
+  Widget buttonAdd(){
+      return Container(
+        child: FloatingActionButton(
+          heroTag: 'next1',
+          onPressed: (){
+
+          },
+     //     tooltip: 'Add',
+          child: Icon(Icons.workspaces_filled,color: Colors.blue,),
+        ),
+      );
+  }
+
+  Widget buttonEdit(){
+    return Container(
+      child: FloatingActionButton(
+        heroTag: 'next2',
+        onPressed: (){
+
+        },
+     //   tooltip: 'Edit',
+        child: Icon(Icons.photo,color: Colors.blue,),
+      ),
+    );
+  }
+
+  Widget buttonDelete(){
+    return Container(
+      child: FloatingActionButton(
+        heroTag: 'next3',
+        onPressed: (){
+
+        },
+     //   tooltip: 'Delete',
+        child: Icon(Icons.gif,color: Colors.blue,),
+      ),
+    );
+  }
+
+  Widget buttonToggle(){
+    return Container(
+      child: FloatingActionButton(
+        heroTag: 'next4',
+        backgroundColor: _buttoncolor.value,
+        onPressed: animate,
+    //    tooltip: 'Toggle',
+        child: Icon(Icons.add),
+        //AnimatedIcon(icon: Icons.add,progress: _animationIcon,),
+      ),
+    );
+  }
+
+  animate()
+  {
+    if(!isOpened)
+      _animationcontroller.forward();
+    else
+      _animationcontroller.reverse();
+    isOpened=!isOpened;
+  }
+
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
@@ -275,13 +373,6 @@ class _AppState extends State<App> {
         ),
         body: Column(
           children: [
-            // Row(
-            //   children: [
-            //     IconButton(
-            //       icon: Icon(Icons.account_circle_rounded,color: Colors.grey,size: 60.0,),
-            //     ),
-            //   ],
-            // ),
             Container(
               width: double.infinity,
               height:150.0,
@@ -310,6 +401,7 @@ class _AppState extends State<App> {
         // ],
       ),
         bottomNavigationBar: BottomNavigationBar(
+          selectedItemColor: Colors.blue,
            currentIndex: _currentindex,
            type: BottomNavigationBarType.fixed,
            backgroundColor: Colors.black,
@@ -354,21 +446,44 @@ class _AppState extends State<App> {
                 }));
               }
               if(_currentindex==3){
-
+                Navigator.push(context, MaterialPageRoute(builder: (context){
+                  return MessageScreen();
+                }));
               }
             });
           },
          ),
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: Colors.blue,
-          child: IconButton(
-            icon: FaIcon(FontAwesomeIcons.plus,color: Colors.white,),
-            onPressed: (){},
-          ),
+        // floatingActionButton: FloatingActionButton(
+        //   heroTag: 'next1',
+        //   onPressed: (){
+        //  //   Navigator.push(context, MaterialPageRoute(builder: (context){
+        //       return Fbutton();
+        //  //   }));
+        //   },
+        // ),
+
+        floatingActionButton: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+          children: <Widget>[
+            Transform(transform: Matrix4.translationValues(0.0, _translateButton.value*3.0, 0.0),
+            child: buttonAdd(),
+            ),
+            Transform(transform: Matrix4.translationValues(0.0, _translateButton.value*2.0, 0.0),
+              child: buttonEdit(),
+            ),
+            Transform(transform: Matrix4.translationValues(0.0, _translateButton.value, 0.0),
+              child: buttonDelete(),
+            ),
+            buttonToggle(),
+        ],
         ),
     ),
     );
   }
+
+  // void animate(){
+  //
+  // }
 }
 
 

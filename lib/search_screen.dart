@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'constants.dart';
 import 'user_bookmarks.dart';
 import 'user_moments.dart';
+import 'storyView.dart';
 
 class SearchScreen extends StatefulWidget {
   @override
@@ -145,8 +146,7 @@ class _SearchScreenState extends State<SearchScreen> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(
-                          left: 17.0, top: 17.0, bottom: 10.0),
+                      padding: const EdgeInsets.only(left: 17.0, top: 17.0, bottom: 10.0),
                       child: Row(
                         children: [
                           Text('1 ',

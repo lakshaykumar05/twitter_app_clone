@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'storydata.dart';
+import 'storyView.dart';
 
 Widget storyButton(StoryData, BuildContext context) {
   return Padding(
@@ -9,7 +10,11 @@ Widget storyButton(StoryData, BuildContext context) {
     InkWell(
     borderRadius: BorderRadius.circular(50.0),
     onTap: (){
-
+      Navigator.push(context, MaterialPageRoute(builder: (context){
+        return storyView();
+      }));
+     // print("TES");
+      //  return storyView();
     },
     child: Container(
       height: 70,
