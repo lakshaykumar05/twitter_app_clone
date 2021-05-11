@@ -12,7 +12,6 @@ import 'search_screen.dart';
 import 'notification_screen.dart';
 import 'storybtn.dart';
 import 'storydata.dart';
-import 'fbutton.dart';
 import 'message_screen.dart';
 
 class App extends StatefulWidget {
@@ -246,7 +245,8 @@ class _AppState extends State<App> with SingleTickerProviderStateMixin {
                         Padding(
                           padding: const EdgeInsets.only(right: 8.0, bottom: 3.0,),
                           child: IconButton(
-                            icon: Icon(Icons.account_circle, size: 33.0,color:Colors.grey),
+                            icon: FaIcon(Icons.list_alt, size: 24.0,color:Colors.grey),
+                        //    icon: Icon(Icons.account_circle, size: 33.0,color:Colors.grey),
                           ),
                         ),
                         Text(
@@ -265,7 +265,8 @@ class _AppState extends State<App> with SingleTickerProviderStateMixin {
                         Padding(
                           padding: const EdgeInsets.only(right: 8.0, bottom: 3.0,),
                           child: IconButton(
-                            icon: Icon(Icons.account_circle, size: 33.0,color:Colors.grey),
+                            icon: FaIcon(Icons.comment, size: 24.0,color:Colors.grey),
+                          //  icon: Icon(Icons.account_circle, size: 33.0,color:Colors.grey),
                           ),
                         ),
                         Text(
@@ -284,7 +285,8 @@ class _AppState extends State<App> with SingleTickerProviderStateMixin {
                         Padding(
                           padding: const EdgeInsets.only(right: 8.0, bottom: 3.0,),
                           child: IconButton(
-                            icon: Icon(Icons.account_circle, size: 33.0,color:Colors.grey),
+                            icon: FaIcon(FontAwesomeIcons.bookmark, size: 24.0,color:Colors.grey),
+                       //     icon: Icon(Icons.account_circle, size: 33.0,color:Colors.grey),
                               onPressed: (){
                                 Navigator.push(context, MaterialPageRoute(builder: (context){
                                   return Bookmarks();
@@ -308,7 +310,8 @@ class _AppState extends State<App> with SingleTickerProviderStateMixin {
                         Padding(
                           padding: const EdgeInsets.only(right: 8.0, bottom: 3.0,),
                           child: IconButton(
-                            icon: Icon(Icons.account_circle, size: 33.0,color:Colors.grey),
+                            icon: FaIcon(FontAwesomeIcons.bolt, size: 24.0,color:Colors.grey),
+                          //  icon: Icon(Icons.account_circle, size: 33.0,color:Colors.grey),
                             onPressed: (){
                               Navigator.push(context, MaterialPageRoute(builder: (context){
                                 return Moments();
@@ -375,7 +378,7 @@ class _AppState extends State<App> with SingleTickerProviderStateMixin {
           children: [
             Container(
               width: double.infinity,
-              height:150.0,
+              height:108.0,
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
@@ -389,16 +392,127 @@ class _AppState extends State<App> with SingleTickerProviderStateMixin {
                 ],
               ),
             ),
-          ],
-        //   children: [
-        //
-        //     SizedBox(
-        //       height: 40.0,
-        //       child: Divider(
-        //         color: Colors.grey,
-        //       ),
-        //     ),
-        // ],
+            Divider(
+              color: Colors.grey,
+            ),
+                  Expanded(
+                    child: ListView.builder(
+                      itemBuilder: (context,index) {
+                        return ListTile(
+                    //      leading: CircleAvatar(backgroundColor: Colors.blue,maxRadius: 15,),
+                          title: Column(
+                            children: [
+                          Row(
+                          children: [
+                          CircleAvatar(backgroundColor:Colors.blue,radius:24,child: Text('IPL',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),),
+                          Padding(
+                            padding: const EdgeInsets.only(left:4.0),
+                            child: Row(
+                              children: [
+                                Text('IndianPremierLeague',style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                ),),
+                                Padding(
+                                  padding: const EdgeInsets.only(left:10.0),
+                                  child: Text('@IPL 8h',style: TextStyle(
+                                    color: Colors.grey,
+                                    //       fontWeight: FontWeight.bold,
+                                    fontSize: 18,
+                                  ),),
+                                ),
+                              ],
+                            ),
+                          ),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(left:30.0),
+                              child: Text(' An absolute livewire on the field\n 4 splendid catches against #RR \n Celebration at the end of it.\n Sit back & enjoy this @imjadeja fielding\n special during ',style: TextStyle(
+                                color: Colors.white,
+                                //    fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                              ),),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(right:200.0),
+                              child: Text('#VIVOIPL',style: TextStyle(
+                                color: Colors.blue,
+                                //    fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                              ),),
+                            ),
+                          ],
+                        ),
+                            Padding(
+                              padding: const EdgeInsets.only(right: 173.0),
+                              child: Text('@ChennaiIPL',style: TextStyle(
+                                color: Colors.blue,
+                                //    fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                              ),),
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                              Container(
+                                width: 280,
+                                height:200,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                                  image: DecorationImage(
+                                //    borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                                //    Boxshape: Boxshape.rectangle,
+                                    image: AssetImage('images/jaddu.jpg'),
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                        ),
+                              Padding(
+                                padding: const EdgeInsets.only(top:18.0,left: 63),
+                                child: Row(
+                                  children: [
+                                    FaIcon(FontAwesomeIcons.comment,color: Colors.grey,size: 17,),
+                                    Text('   34 ',style: TextStyle(
+                                      color: Colors.grey,
+                                      fontSize: 13,
+                                    ),),
+                                    SizedBox(
+                                      width: 30,
+                                    ),
+                                    FaIcon(FontAwesomeIcons.retweet,color: Colors.grey,size: 17,),
+                                    Text('   197 ',style: TextStyle(
+                                      color: Colors.grey,
+                                      fontSize: 13,
+                                    ),),
+                                    SizedBox(
+                                      width: 30,
+                                    ),
+                                    FaIcon(FontAwesomeIcons.heart,color: Colors.grey,size: 17,),
+                                    Text('   3,148 ',style: TextStyle(
+                                      color: Colors.grey,
+                                      fontSize: 13,
+                                    ),),
+                                    SizedBox(
+                                      width: 30,
+                                    ),
+                                    Icon(Icons.share,color: Colors.grey,size: 20),
+                                  ],
+                                ),
+                              ),
+                              Divider(
+                                color: Colors.grey,
+                              ),
+                        ],
+                        ),
+                        );
+                      },
+                    ),
+                  ),
+           ],
       ),
         bottomNavigationBar: BottomNavigationBar(
           selectedItemColor: Colors.blue,
@@ -453,15 +567,6 @@ class _AppState extends State<App> with SingleTickerProviderStateMixin {
             });
           },
          ),
-        // floatingActionButton: FloatingActionButton(
-        //   heroTag: 'next1',
-        //   onPressed: (){
-        //  //   Navigator.push(context, MaterialPageRoute(builder: (context){
-        //       return Fbutton();
-        //  //   }));
-        //   },
-        // ),
-
         floatingActionButton: Column(
             mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
@@ -480,10 +585,6 @@ class _AppState extends State<App> with SingleTickerProviderStateMixin {
     ),
     );
   }
-
-  // void animate(){
-  //
-  // }
 }
 
 

@@ -9,7 +9,7 @@ class Mentions extends StatelessWidget {
       //   icon:
       // ),
       title: Text(
-        'World Health Organization approves Chinese vaccine for emergency use',
+        '  ',
         style: TextStyle(
           color: Colors.white,
         ),

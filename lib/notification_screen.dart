@@ -7,6 +7,8 @@ import 'message_screen.dart';
 import 'user_moments.dart';
 import 'Notifications.dart';
 import 'Mentions.dart';
+import 'search_screen.dart';
+import 'menu_screen.dart';
 
 
 class NotificationScreen extends StatefulWidget {
@@ -14,36 +16,101 @@ class NotificationScreen extends StatefulWidget {
   _NotificationScreenState createState() => _NotificationScreenState();
 }
 
-class _NotificationScreenState extends State<NotificationScreen> {
+class _NotificationScreenState extends State<NotificationScreen> with SingleTickerProviderStateMixin{
 
-  // List<Widget> containers =[
-  //   Column(
-  //     children: [
-  //       Row(
-  //         children: [
-  //           Padding(
-  //             padding: const EdgeInsets.only(top:12.0,left:34.0),
-  //             child: Text('News for you',style:
-  //               TextStyle(
-  //                 color: Colors.grey,
-  //               ),),
-  //           ),
-  //         ],
-  //       ),
-  //       Row(
-  //         children: [
-  //           Container(
-  //             color: Colors.black,
-  //             child: Text('ngfnsrgvegtrhrthrng'),
-  //           ),
-  //         ],
-  //       ),
-  //     ],
-  //   ),
-  //   Container(
-  //     color: Colors.black,
-  //   ),
-  // ];
+  int _currentindex=0;
+
+  bool isOpened=false;
+  AnimationController _animationcontroller;
+  Animation<Color> _buttoncolor;
+  Animation<double> _animationIcon;
+  Animation<double> _translateButton;
+  Curve _curve = Curves.easeOut;
+  double _fabHeight = 56.0;
+
+  @override
+  void dispose(){
+    _animationcontroller.dispose();
+  }
+
+  @override
+  void initState()
+  {
+    _animationcontroller=AnimationController(vsync: this, duration: Duration(milliseconds: 500))
+      ..addListener(() {setState(() {
+      });
+      });
+    _animationIcon = Tween <double> (begin: 0.0,end: 1.0).animate(_animationcontroller);
+    _buttoncolor = ColorTween(begin: Colors.blue,end: Colors.blue).animate(CurvedAnimation(
+        parent: _animationcontroller,
+        curve: Interval(0.0,1.0,curve: Curves.linear)));
+    _translateButton =Tween <double> (begin: _fabHeight,end: -5).animate(CurvedAnimation(
+        parent: _animationcontroller,
+        curve: Interval(0.0,0.75,curve: _curve)));
+
+    super.initState();
+  }
+
+  Widget buttonAdd(){
+    return Container(
+      child: FloatingActionButton(
+        heroTag: 'next1',
+        onPressed: (){
+
+        },
+        //     tooltip: 'Add',
+        child: Icon(Icons.workspaces_filled,color: Colors.blue,),
+      ),
+    );
+  }
+
+  Widget buttonEdit(){
+    return Container(
+      child: FloatingActionButton(
+        heroTag: 'next2',
+        onPressed: (){
+
+        },
+        //   tooltip: 'Edit',
+        child: Icon(Icons.photo,color: Colors.blue,),
+      ),
+    );
+  }
+
+  Widget buttonDelete(){
+    return Container(
+      child: FloatingActionButton(
+        heroTag: 'next3',
+        onPressed: (){
+
+        },
+        //   tooltip: 'Delete',
+        child: Icon(Icons.gif,color: Colors.blue,),
+      ),
+    );
+  }
+
+  Widget buttonToggle(){
+    return Container(
+      child: FloatingActionButton(
+        heroTag: 'next4',
+        backgroundColor: _buttoncolor.value,
+        onPressed: animate,
+        //    tooltip: 'Toggle',
+        child: Icon(Icons.add),
+        //AnimatedIcon(icon: Icons.add,progress: _animationIcon,),
+      ),
+    );
+  }
+
+  animate()
+  {
+    if(!isOpened)
+      _animationcontroller.forward();
+    else
+      _animationcontroller.reverse();
+    isOpened=!isOpened;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -326,12 +393,75 @@ class _NotificationScreenState extends State<NotificationScreen> {
              Mentions(),
            ],
          ),
-          floatingActionButton: FloatingActionButton(
-            backgroundColor: Colors.blue,
-            child: IconButton(
-              icon: FaIcon(FontAwesomeIcons.plus,color: Colors.white,),
-              onPressed: (){},
-            ),
+          bottomNavigationBar: BottomNavigationBar(
+            selectedItemColor: Colors.blue,
+            currentIndex: _currentindex,
+            type: BottomNavigationBarType.fixed,
+            backgroundColor: Colors.black,
+            iconSize: 29.0,
+            items: [
+              BottomNavigationBarItem(
+                icon: Icon(Icons.home),
+                title: Text(''),
+                backgroundColor: Colors.blue,
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.search),
+                title: Text(''),
+                backgroundColor: Colors.blue,
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.notifications),
+                title: Text(''),
+                backgroundColor: Colors.blue,
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.email_outlined),
+                title: Text(''),
+                backgroundColor: Colors.blue,
+              ),
+            ],
+            onTap: (index){
+              setState(() {
+                _currentindex = index;
+                // print(_currentindex);
+                if(_currentindex==0){
+                  Navigator.push(context, MaterialPageRoute(builder: (context){
+                    return App();
+                  }));
+                }
+                if(_currentindex==1){
+                  Navigator.push(context, MaterialPageRoute(builder: (context){
+                    return SearchScreen();
+                  }));
+                }
+                if(_currentindex==2){
+                  // Navigator.push(context, MaterialPageRoute(builder: (context){
+                  //   return NotificationScreen();
+                  // }));
+                }
+                if(_currentindex==3){
+                  Navigator.push(context, MaterialPageRoute(builder: (context){
+                    return MessageScreen();
+                  }));
+                }
+              });
+            },
+          ),
+          floatingActionButton: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              Transform(transform: Matrix4.translationValues(0.0, _translateButton.value*3.0, 0.0),
+                child: buttonAdd(),
+              ),
+              Transform(transform: Matrix4.translationValues(0.0, _translateButton.value*2.0, 0.0),
+                child: buttonEdit(),
+              ),
+              Transform(transform: Matrix4.translationValues(0.0, _translateButton.value, 0.0),
+                child: buttonDelete(),
+              ),
+              buttonToggle(),
+            ],
           ),
         ),
       ),
