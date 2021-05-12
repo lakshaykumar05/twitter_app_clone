@@ -26,7 +26,7 @@ class Notifications extends StatelessWidget {
       children: [
         Expanded(
           child: ListView.builder(
-            itemCount: 6,
+            itemCount: 7,
             itemBuilder: (context,index) {
               return ListTile(
                 leading: Padding(
@@ -56,7 +56,7 @@ class Notifications extends StatelessWidget {
                             child: Container(
                               child: Column(
                                 children: [
-                                  DisplayNot(notification[l++],context),
+                                  DisplayNot(notification[(l++)%7],context),
                                     Divider(
                                       color: Colors.grey,
                                     ),

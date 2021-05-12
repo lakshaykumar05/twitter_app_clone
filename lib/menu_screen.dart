@@ -137,10 +137,7 @@ class _AppState extends State<App> with SingleTickerProviderStateMixin {
           actions: [
             Row(
               children: [
-                IconButton(
-                  icon: FaIcon(FontAwesomeIcons.twitter),
-                  onPressed: () {},
-                ),
+               FaIcon(FontAwesomeIcons.twitter),
                 SizedBox(
                   width: 130.0,
                 ),

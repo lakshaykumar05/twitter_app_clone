@@ -116,7 +116,7 @@ class _NotificationScreenState extends State<NotificationScreen> with SingleTick
   Widget build(BuildContext context) {
     return SafeArea(
       child: DefaultTabController(
-        initialIndex: 1,
+        initialIndex: 0,
         length: 2,
         child: Scaffold(
           backgroundColor: Colors.black,
@@ -328,9 +328,9 @@ class _NotificationScreenState extends State<NotificationScreen> with SingleTick
                             child: IconButton(
                               icon: Icon(Icons.account_circle, size: 33.0,color:Colors.grey),
                               onPressed: (){
-                                Navigator.push(context, MaterialPageRoute(builder: (context){
-                                  return Moments();
-                                }));
+                                // Navigator.push(context, MaterialPageRoute(builder: (context){
+                                //   return Moments();
+                                // }));
                               },
                             ),
                           ),
