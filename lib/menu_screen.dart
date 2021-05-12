@@ -33,7 +33,7 @@ class _AppState extends State<App> with SingleTickerProviderStateMixin {
 
 
     List<StoryData> stories = [
-       StoryData(userName: 'Lakshay Kumar' , avatarUrl: 'images/5.jpg'),
+       StoryData(userName: 'Lakshay' , avatarUrl: 'images/5.jpg'),
        StoryData(userName: 'Angela Yu' , avatarUrl: 'images/1.jpg'),
        StoryData(userName: 'Mam' , avatarUrl: 'images/2.jpg'),
        StoryData(userName: 'Joseph' , avatarUrl: 'images/3.jpg'),

@@ -18,7 +18,7 @@ class NotificationScreen extends StatefulWidget {
 
 class _NotificationScreenState extends State<NotificationScreen> with SingleTickerProviderStateMixin{
 
-  int _currentindex=0;
+  int _currentindex=2;
 
   bool isOpened=false;
   AnimationController _animationcontroller;
@@ -129,6 +129,7 @@ class _NotificationScreenState extends State<NotificationScreen> with SingleTick
                     child: Text('All',style:
                     TextStyle(
                       color: Colors.grey,
+                      fontSize: 17,
                     ),
                     ),
                    //  onPressed: () {
@@ -144,6 +145,7 @@ class _NotificationScreenState extends State<NotificationScreen> with SingleTick
                     child: Text('Mentions',style:
                     TextStyle(
                       color: Colors.grey,
+                      fontSize: 17,
                     ),),
                   ),
                 ),

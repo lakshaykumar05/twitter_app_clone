@@ -16,7 +16,7 @@ class SearchScreen extends StatefulWidget {
 
 class _SearchScreenState extends State<SearchScreen> with SingleTickerProviderStateMixin{
   int initial_index;
-  int _currentindex=0;
+  int _currentindex=1;
 
   bool isOpened=false;
   AnimationController _animationcontroller;
